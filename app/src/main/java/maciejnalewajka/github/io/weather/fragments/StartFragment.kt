@@ -39,8 +39,9 @@ class StartFragment : Fragment() {
             binding.temperature.text = "${it.main.temp}"+viewModel.symbol
             binding.cityName.text = it.name
             val context = binding.imgWeather.context
-
             binding.imgWeather.setImageResource(viewModel.getImgWeatherId(context))
+            binding.sunriseText.text = viewModel.longToTime(it.sys.sunrise)
+            binding.sunsetText.text = viewModel.longToTime(it.sys.sunset)
         })
 
         binding.settingsButton.setOnClickListener {

@@ -15,6 +15,8 @@ import maciejnalewajka.github.io.weather.Service
 import maciejnalewajka.github.io.weather.dataBase.Base
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.text.SimpleDateFormat
+import java.util.*
 
 class StartViewModel(context: Context) : ViewModel() {
 
@@ -90,5 +92,15 @@ class StartViewModel(context: Context) : ViewModel() {
         val string = "i" + (base.value?.weather?.get(0)?.icon ?: "")
         return context.resources
             .getIdentifier(string, "drawable", context.packageName)
+    }
+
+    fun longToTime(long: Long): String? {
+        return try {
+            val newDate = Date(long*1000)
+            val format = SimpleDateFormat("HH:mm", Locale.ENGLISH)
+            format.format(newDate)
+        } catch (e: Exception) {
+            ""
+        }
     }
 }
