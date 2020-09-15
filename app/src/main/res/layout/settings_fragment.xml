@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="settingsViewModel"
+            type="maciejnalewajka.github.io.weather.fragments.SettingsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#f6f4e6"
+        tools:context=".fragments.SettingsFragment">
+
+        <ImageView
+            android:id="@+id/backButton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back" />
+
+        <TextView
+            android:id="@+id/textView"
+            style="@style/text_style_city_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:shadowColor="#52575d"
+            android:text="Stopnie"
+            android:textColor="#fddb3a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/backButton" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView">
+
+            <RadioButton
+                android:id="@+id/celsjusz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTintMode="add"
+                android:buttonTint="#fddb3a"
+                android:checked="true"
+                android:fontFamily="@font/lato"
+                android:shadowRadius="2"
+                android:text="Celsjusz"
+                android:textAlignment="textStart"
+                android:textColor="#41444b"
+                android:textColorHint="#BA1111"
+                android:textSize="14sp"
+                android:typeface="sans" />
+
+            <RadioButton
+                android:id="@+id/kelvin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTintMode="add"
+                android:buttonTint="#fddb3a"
+                android:shadowRadius="2"
+                android:text="Kelvin"
+                android:textAlignment="textStart"
+                android:textColor="#41444b"
+                android:textColorHint="#BA1111"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/fahrenheit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTintMode="add"
+                android:buttonTint="#fddb3a"
+                android:fontFamily="@font/lato"
+                android:shadowRadius="2"
+                android:text="Fahrenheit"
+                android:textAlignment="textStart"
+                android:textColor="#41444b"
+                android:textColorHint="#BA1111"
+                android:textSize="14sp"
+                android:typeface="sans" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/textView2"
+            style="@style/text_style_city_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:shadowColor="#52575d"
+            android:text="Miejscowość"
+            android:textColor="#fddb3a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+        <EditText
+            android:id="@+id/newCity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="#00000000"
+            android:ems="10"
+            android:fontFamily="@font/lato"
+            android:hint=""
+            android:inputType="textPersonName"
+            android:shadowRadius="2"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="#41444b"
+            android:textColorHint="#9C979393"
+            android:textSize="24sp"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <ImageView
+            android:id="@+id/okButton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ok"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newCity" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
