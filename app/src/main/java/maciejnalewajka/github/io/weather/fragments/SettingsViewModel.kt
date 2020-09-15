@@ -11,11 +11,13 @@ class SettingsViewModel(context: Context) : ViewModel() {
     private var city: String = ""
     private var units: String = ""
     private var symbol: String = ""
+    private var speed: String = ""
 
     init {
         city = shared.getString("city", "")!!
         units = shared.getString("units", "")!!
         symbol = shared.getString("symbol", "K")!!
+        speed = shared.getString("speed", "m/h")!!
     }
 
     fun changeCity(newCity: String){
@@ -23,13 +25,13 @@ class SettingsViewModel(context: Context) : ViewModel() {
         shared.edit().putString("city", newCity).apply()
     }
 
-    fun changeUnits(newUnits: String, newSymbol: String, newSpeed: String){
+    fun changeUnits(){
         shared.edit().remove("units").apply()
         shared.edit().remove("symbol").apply()
         shared.edit().remove("speed").apply()
-        shared.edit().putString("units", newUnits).apply()
-        shared.edit().putString("symbol", newSymbol).apply()
-        shared.edit().putString("speed", newSpeed).apply()
+        shared.edit().putString("units", units).apply()
+        shared.edit().putString("symbol", symbol).apply()
+        shared.edit().putString("speed", speed).apply()
     }
 
     fun getCity(): String{
@@ -38,5 +40,11 @@ class SettingsViewModel(context: Context) : ViewModel() {
 
     fun getUnits(): String{
         return units
+    }
+
+    fun set(newUnits: String, newSymbol: String, newSpeed: String){
+        units = newUnits
+        symbol = newSymbol
+        speed = newSpeed
     }
 }

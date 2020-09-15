@@ -42,16 +42,11 @@ class SettingsFragment : Fragment() {
         }
 
         binding.radioGroup.setOnCheckedChangeListener { group, checkedId ->
-            if (networkState.isActive()) {
-                when (checkedId) {
-                    binding.celsjusz.id -> viewModel.changeUnits("metric", "°C", "m/s")
-                    binding.fahrenheit.id -> viewModel.changeUnits("imperial", "°F", "m/s")
-                    binding.kelvin.id -> viewModel.changeUnits("", "K", "m/h")
+            when (checkedId) {
+                binding.celsjusz.id -> viewModel.set("metric", "°C", "m/s")
+                binding.fahrenheit.id -> viewModel.set("imperial", "°F", "m/s")
+                binding.kelvin.id -> viewModel.set("", "K", "m/h")
                 }
-            }
-            else{
-                Toast.makeText(inflater.context, "Disconnected", Toast.LENGTH_SHORT).show()
-            }
         }
 
         binding.okButton.setOnClickListener {
@@ -60,6 +55,7 @@ class SettingsFragment : Fragment() {
                 if (city != "") {
                     viewModel.changeCity(city)
                 }
+                viewModel.changeUnits()
                 findNavController().navigate(SettingsFragmentDirections.actionSettingsFragmentToStartFragment())
             }
             else{
